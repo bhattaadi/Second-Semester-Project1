@@ -1,0 +1,34 @@
+# =====================================================
+# VEYRO E-COMMERCE - .htaccess
+# TU BCA 2nd Year Project
+# =====================================================
+
+<IfModule mod_rewrite.c>
+
+    RewriteEngine On
+
+    # Turn off directory browsing
+    Options -Indexes
+
+    # Allow clean URLs like /products?category=Hoodie without extra rewriting
+    # (kept simple since this project uses real .php files such as
+    #  index.php, about.php, products.php - not a single front controller)
+
+    # Allow visiting a page without typing .php at the end
+    # example: /about  ->  /about.php
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME}\.php -f
+    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+</IfModule>
+
+# Note: the /config folder (database credentials) is protected by its
+# own .htaccess file placed directly inside config/
+
+# Prevent .sql file downloads
+<FilesMatch "\.sql$">
+    Require all denied
+</FilesMatch>
+
+# Default file to load
+DirectoryIndex index.php

@@ -1,0 +1,429 @@
+/* =========================================================
+   VEYRO E-COMMERCE - MAIN STYLESHEET
+   TU BCA 2nd Year Project
+   ========================================================= */
+
+:root {
+    --veyro-black: #121212;
+    --veyro-dark: #1c1c1c;
+    --veyro-gold: #c9a961;
+    --veyro-white: #f7f7f5;
+    --veyro-gray: #8a8a8a;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background-color: #fafafa;
+    color: #222;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.veyro-header {
+    background-color: var(--veyro-black);
+    padding: 14px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.veyro-logo {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    margin: 0;
+}
+
+.veyro-logo span {
+    color: var(--veyro-gold);
+}
+
+.veyro-nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 34px;
+}
+
+/* Unique header hover style: underline grows from center + letter
+   spacing expands + color shift to gold */
+.veyro-nav li a {
+    position: relative;
+    color: #e6e6e6;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 6px;
+    transition: color 0.35s ease, letter-spacing 0.35s ease;
+}
+
+.veyro-nav li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--veyro-gold);
+    transition: width 0.35s ease, left 0.35s ease;
+}
+
+.veyro-nav li a:hover,
+.veyro-nav li a.active {
+    color: var(--veyro-gold);
+    letter-spacing: 2.5px;
+}
+
+.veyro-nav li a:hover::after,
+.veyro-nav li a.active::after {
+    width: 100%;
+    left: 0%;
+}
+
+.veyro-header .icon-link {
+    color: #fff;
+    font-size: 19px;
+    margin-left: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.veyro-header .icon-link:hover {
+    color: var(--veyro-gold);
+    transform: translateY(-2px);
+}
+
+.veyro-cart-badge {
+    background: var(--veyro-gold);
+    color: #121212;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 50%;
+    position: relative;
+    top: -10px;
+    left: -6px;
+}
+
+/* =========================================================
+   BANNER / CAROUSEL
+   ========================================================= */
+.veyro-banner-wrap {
+    width: 100%;
+    overflow: hidden;
+}
+
+#veyroCarousel .carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+#veyroCarousel .carousel-indicators [data-bs-target] {
+    background-color: var(--veyro-gold);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+/* =========================================================
+   SECTION TITLES
+   ========================================================= */
+.section-title {
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 55px;
+    margin-bottom: 8px;
+}
+
+.section-underline {
+    width: 60px;
+    height: 3px;
+    background-color: var(--veyro-gold);
+    margin: 0 auto 40px auto;
+}
+
+/* =========================================================
+   PRODUCT CARDS
+   ========================================================= */
+.product-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    height: 100%;
+}
+
+.product-card:hover {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+}
+
+.product-card .product-img-wrap {
+    overflow: hidden;
+    height: 280px;
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.06);
+}
+
+.product-card .product-body {
+    padding: 16px 18px;
+}
+
+.product-card .product-category {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--veyro-gray);
+}
+
+.product-card .product-name {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 4px 0 8px 0;
+    color: #1a1a1a;
+}
+
+.product-card .product-price {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--veyro-black);
+}
+
+.btn-veyro {
+    background-color: var(--veyro-black);
+    color: #fff;
+    border: 1px solid var(--veyro-black);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 9px 20px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-veyro:hover {
+    background-color: var(--veyro-gold);
+    border-color: var(--veyro-gold);
+    color: #121212;
+}
+
+.btn-veyro-outline {
+    background-color: transparent;
+    color: var(--veyro-black);
+    border: 1px solid var(--veyro-black);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.btn-veyro-outline:hover {
+    background-color: var(--veyro-black);
+    color: #fff;
+}
+
+/* =========================================================
+   SIDEBAR
+   ========================================================= */
+.veyro-sidebar {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 22px;
+}
+
+.veyro-sidebar h5 {
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--veyro-gold);
+    padding-bottom: 10px;
+}
+
+.veyro-sidebar .list-group-item {
+    border: none;
+    padding: 8px 0;
+    background: transparent;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    transition: color 0.25s ease, padding-left 0.25s ease;
+}
+
+.veyro-sidebar .list-group-item:hover,
+.veyro-sidebar .list-group-item.active-category {
+    color: var(--veyro-gold);
+    padding-left: 6px;
+}
+
+.veyro-sidebar .price-range {
+    accent-color: var(--veyro-gold);
+}
+
+.sidebar-promo {
+    background: var(--veyro-black);
+    color: #fff;
+    border-radius: 4px;
+    padding: 22px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.sidebar-promo h6 {
+    color: var(--veyro-gold);
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+/* =========================================================
+   AUTH FORMS / GENERAL CARDS
+   ========================================================= */
+.auth-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 40px;
+    max-width: 460px;
+    margin: 60px auto;
+}
+
+.auth-card h3 {
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.form-control:focus {
+    border-color: var(--veyro-gold);
+    box-shadow: 0 0 0 0.2rem rgba(201, 169, 97, 0.25);
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.veyro-footer {
+    background-color: var(--veyro-black);
+    color: #cfcfcf;
+    margin-top: 70px;
+    padding-top: 55px;
+}
+
+.veyro-footer h6 {
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.veyro-footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.veyro-footer ul li {
+    margin-bottom: 10px;
+}
+
+.veyro-footer ul li a {
+    color: #cfcfcf;
+    transition: color 0.3s ease, padding-left 0.3s ease;
+}
+
+.veyro-footer ul li a:hover {
+    color: var(--veyro-gold);
+    padding-left: 5px;
+}
+
+.veyro-footer .footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 1px solid #444;
+    border-radius: 50%;
+    color: #fff;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.veyro-footer .footer-social a:hover {
+    background-color: var(--veyro-gold);
+    border-color: var(--veyro-gold);
+    color: #121212;
+}
+
+.veyro-footer .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    margin-top: 40px;
+    padding: 18px 0;
+    text-align: center;
+    font-size: 13px;
+    color: #999;
+}
+
+.footer-newsletter .form-control {
+    border-radius: 2px 0 0 2px;
+    border: none;
+}
+
+.footer-newsletter .btn {
+    border-radius: 0 2px 2px 0;
+}
+
+/* =========================================================
+   ALERTS / MISC
+   ========================================================= */
+.veyro-alert {
+    border-radius: 3px;
+    letter-spacing: 0.4px;
+}
+
+.page-banner {
+    background-color: var(--veyro-black);
+    color: #fff;
+    padding: 45px 0;
+    text-align: center;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+@media (max-width: 767px) {
+    .veyro-nav {
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+    .auth-card {
+        padding: 26px;
+    }
+}

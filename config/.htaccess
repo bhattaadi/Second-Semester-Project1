@@ -1,0 +1,10 @@
+# Block all direct access to this folder (it only holds DB credentials
+# and is meant to be used with PHP's require/include, never opened directly)
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order deny,allow
+    Deny from all
+</IfModule>
